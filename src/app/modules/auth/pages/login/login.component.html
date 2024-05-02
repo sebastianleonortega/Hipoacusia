@@ -1,20 +1,56 @@
-<div class="login-container">
-  <div class="login-form">
-    <h1>Sound Good</h1>
-    <form [formGroup]="login" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Usuario</label>
-        <input formControlName="email" type="text" id="username" name="username" placeholder="Usuario" appValidateErrors>
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input formControlName="password" type="password" id="password" name="password" placeholder="Contraseña">
-      </div>
-      <button class="get-into" type="submit" [disabled]="login.invalid">Ingresar</button>
-      <button class="get-into color-orange" type="submit" >Registrate</button>
-    </form>
-  </div>
-  <div class="login-image">
-    <img src="assets/images/auth/login1.png" alt="Imagen de inicio de sesión">
+<!--<div class="login-container">-->
+<!--  <div class="login-form">-->
+<!--    <h1>Sound Good</h1>-->
+<!--    <form [formGroup]="login" (ngSubmit)="onSubmit()">-->
+<!--      <div class="form-group">-->
+<!--        <label for="username">Usuario</label>-->
+<!--        <input formControlName="email" type="text" id="username" name="username" placeholder="Usuario" appValidateErrors>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="password">Contraseña</label>-->
+<!--        <input formControlName="password" type="password" id="password" name="password" placeholder="Contraseña">-->
+<!--      </div>-->
+<!--      <button class="get-into" type="submit" >Ingresar</button>-->
+<!--      <button class="get-into color-orange" routerLink="/register" type="submit" >Registrate</button>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--  <div class="login-image">-->
+<!--    <img src="assets/images/auth/login1.png" alt="Imagen de inicio de sesión">-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="wrapper-login" >
+  <div class="login-container">
+    <div class="login-form">
+      <h1>Comenzar sesión</h1>
+      <form class="grid" [formGroup]="login" (ngSubmit)="sendLogin()">
+        <div class="col-12">
+          <div class="form-container">
+            <div class="form-group">
+              <label class="form-label"><em class="icon-user"></em> Usuario</label>
+              <input class="form-input" appInputMask="alphaNumeric" appValidateErrors type="text" placeholder="" formControlName="user_name">
+              <span class="form-line"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-container">
+            <div class="form-group">
+              <label class="form-label"><em class="icon-padlock"></em> Contraseña</label>
+              <input class="form-input" type="password" appValidateErrors placeholder="" formControlName="password">
+              <span class="form-line"></span>
+            </div>
+          </div>
+        </div>
+        <div class="content-btn-redirect-register">
+          <span class="login-btn-register" (click)="register()" type="submit">Crear una cuenta </span>
+        </div>
+        <button class="btn-general" type="submit">Ingresar</button>
+      </form>
+    </div>
+    <div class="login-image">
+      <img src="assets/images/auth/shop.gif" alt="Imagen de inicio de sesión">
+    </div>
   </div>
 </div>
