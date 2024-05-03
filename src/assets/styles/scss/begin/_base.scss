@@ -1,0 +1,74 @@
+//****** colors for alerts ******//
+$success-color: #3BC279;
+$success-color-light: #E7F9F1;
+$error-color: #FF040E;
+$error-color-light: #FAEDED;
+$warning-color: #FFBF01;
+$warning-color-light: #FFF8E3;
+$info-color: #37CCEA;
+$info-color-light: #D9F5FF;
+$reversed-color: #0909b6;
+
+$box-shadow-default: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+
+//****** Font ******//
+$font-family: 'Roboto';
+
+//****** Loader ******//
+.no-scroll {
+  overflow: hidden;
+  scroll-behavior: initial;
+}
+
+
+//****** buttons ******//
+.btn-general {
+  width: 100%;
+  background-color: theme-palette-color('color', 'primary');
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  margin-top: 10px;
+
+  &:hover{
+    background-color: theme-palette-color('color', 'secondary');
+  }
+}
+
+.btn-second{
+  background-color: theme-palette-color('color', 'secondary');
+
+  &:hover{
+    background-color: #c6c6d2;
+    color: black;
+  }
+}
+
+//****** error messages ******//
+.form-error {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  display: inline-block;
+  color: $error-color;
+  margin: 2px 0 0 4px;
+  font-weight: 400;
+  height: 8px;
+}
+
+.input-error {
+  border-bottom: 2px solid $error-color !important;
+}
+
+.input-error ~ .form-line {
+  background: $error-color !important;
+}
+
+//****** hide scroll bar ******//
+::-webkit-scrollbar {
+  display: none !important;
+}
