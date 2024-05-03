@@ -48,6 +48,8 @@ export class RegisterComponent implements OnInit {
           person_phone : this.register.get('person_phone')?.value,
           person_address : this.register.get('person_address')?.value,
           person_email : this.register.get('person_email')?.value,
+          type_of_hearing_loss : "",
+          previous_treatments : "",
         }
       }
       this._auth.register(data).subscribe({

@@ -1,3 +1,4 @@
+@import "../themes/theme";
 .form-container {
   border-radius: 4px;
   width: 100%;
@@ -26,7 +27,7 @@
       font-size: 16px;
       outline: none;
       border: none;
-      border-bottom: 1px solid theme-palette-color('color', 'secondary');
+      border-bottom: 1px solid theme-palette-color('color', 'primary');
     }
 
     .form-line {

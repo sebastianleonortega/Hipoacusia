@@ -10,6 +10,9 @@ import { HeaderMedicalComponent } from './layouts/header-medical/header-medical.
 import {RouterModule} from "@angular/router";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MessageErrorsDirective} from "./directives/field-errors/directive/message-errors.directive";
+import {InputMaskDirective} from "./directives/input-mask/input-mask.directive";
+import {TemplateErrorComponent} from "./directives/field-errors/template-error/template-error.component";
 
 
 
@@ -18,7 +21,10 @@ import {MatNativeDateModule} from "@angular/material/core";
     HeaderComponent,
     FooterComponent,
     CarrouselComponent,
-    HeaderMedicalComponent
+    HeaderMedicalComponent,
+    InputMaskDirective,
+    MessageErrorsDirective,
+    TemplateErrorComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +49,10 @@ import {MatNativeDateModule} from "@angular/material/core";
     HeaderMedicalComponent,
     RouterModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    InputMaskDirective,
+    MessageErrorsDirective,
+    TemplateErrorComponent
 
 
   ]

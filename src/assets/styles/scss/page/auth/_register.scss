@@ -8,8 +8,8 @@
   background-color: theme-palette-color('color', 'primary');
 
   .register-container{
-    width: 80%;
-    height: 80%;
+    width: 96%;
+    height: 96%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,8 +35,6 @@
         font-size: 24px;
         color: theme-palette-color('color', 'primary');
       }
-
-
 
       form {
         display: flex;
