@@ -1,16 +1,11 @@
 <app-header></app-header>
-<app-carrousel></app-carrousel>
-<app-carrousel></app-carrousel>
 <div class="wrapper-home">
-
-
   <div class="content-carousel">
     <swiper [config]="config">
       <ng-template swiperSlide *ngFor="let slide of slides">
         <img class="img-carrousel" [src]="slide.image" alt="image"/>
       </ng-template>
       <div class="swiper-pagination"></div>
-
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-scrollbar"></div>
@@ -19,9 +14,7 @@
       <button class="swiper-button-next"></button>
     </swiper>
   </div>
-
   <div class="wrapper-test">
-
     <div class="test-container">
       <div class="test-title">
         <h2>Realiza nuestras pruebas de sonido</h2>
@@ -33,7 +26,6 @@
         se describen brevemente ambas pruebas:</span>
       </div>
       <div class="sound-tests">
-
         <div class="test-numeric">
           <div class="test-title-sound">
             <h2>Prueba de Sonido numerico</h2>
