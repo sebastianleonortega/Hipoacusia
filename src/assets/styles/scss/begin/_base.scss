@@ -72,3 +72,60 @@ $font-family: 'Roboto';
 ::-webkit-scrollbar {
   display: none !important;
 }
+
+//****** Styles of selects *****//
+
+.ng-select.custom-two .ng-select-container{
+  border: none;
+}
+
+.ng-select.custom-two .ng-select-container {
+  min-height: 38px;
+  border-radius: 0;
+  color: inherit;
+  font-size: 14px !important;
+  border-bottom: 1px solid theme-palette-color('color', 'secondary') !important;
+}
+
+
+.ng-select.custom-multiple .ng-select-container .ng-value-container .ng-placeholder {
+  top: 10px;
+}
+
+app-column-filter {
+  position: relative;
+}
+
+.ng-select.custom-multiple .ng-select-container {
+  padding: 0 0 0 10px !important;
+}
+
+.ng-select.custom > .ng-select-container > .ng-value-container {
+  padding-left: 0;
+}
+
+ng-select.custom {
+  outline: none !important;
+
+  &.ng-select-opened {
+    > .ng-select-container {
+    }
+  }
+
+  &.ng-select-focused {
+    &:not(.ng-select-opened) > .ng-select-container {
+      border-color: theme-palette-color('grays', 300);
+      box-shadow: none;
+    }
+  }
+}
+
+ng-select.custom-two {
+
+  &.ng-select-focused {
+    &:not(.ng-select-opened) > .ng-select-container {
+      border-color: theme-palette-color('grays', 300);
+      box-shadow: none;
+    }
+  }
+}

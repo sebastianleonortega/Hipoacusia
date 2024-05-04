@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import {AuthRoutingModule} from "./auth-routing.module";
 import {SharedModule} from "../../shared/shared.module";
 import { RegisterComponent } from './pages/register/register.component';
+import {NgSelectModule} from "@ng-select/ng-select";
 
 
 
@@ -12,10 +13,11 @@ import { RegisterComponent } from './pages/register/register.component';
     LoginComponent,
     RegisterComponent,
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        SharedModule,
+        NgSelectModule
+    ]
 })
 export class AuthModule { }

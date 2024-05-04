@@ -18,4 +18,13 @@ export class AuthService {
   public login(data: any): Observable<any>{
     return this._http.post(this.api + 'login', data);
   }
+
+  public hearingLoss(): Observable<any>{
+    return this._http.get(this.api + 'security/hearing_loss/');
+  }
+
+  public typeOfDocuments(): Observable<any>{
+    return this._http.get(this.api + 'security/hearing_loss/');
+  }
+
 }
