@@ -1,91 +1,83 @@
 <app-header></app-header>
-
-<div class="wrapper-doctor">
-
-
-    <div class="left-info-doctor">
-
-        <div class="doctor-info" >
-            <div class="doctor-img">
-                <img src="{{image}}" alt="Imagen del medico">
+<div class="wrapper-main-doctor">
+  <div class="main-doctor--top">
+    <div class="main-doctor--top__left">
+      <span class="name-doctor">Dr. Jose Leonardo Quintero Leon</span>
+      <span class="speciality-doctor">Medico general</span>
+      <span class="info-speciality">Doctor especializado en medicina general para poder tratar a cualquier pacient, con amplia experiencia en el campo, soy graduado de la universidad de pamplona con varios certificados a nivel internacional, reconocido por la mayoria de hospitales ademas de esto no se que mas colocar en esta parte y tengo mucho sueño aiudaaa jajajajaja, tengo pereza pero tengo que terminar esta parte no se, no me termino de convencer mucho esta parte pero weno toca mirar como se arreglar para arreglarlo</span>
+      <div class="content-form-doctor">
+        <form [formGroup]="scheduleAppointment" (ngSubmit)="sendScheduleAppointment()">
+          <div class="form-content">
+            <label class="form-label">Fecha de nacimiento</label>
+            <div class="input-container">
+              <input [matDatepicker]="personBirthdate"
+                     [min]="dateNow" class="form-input"
+                     formControlName="date" matInput
+                     placeholder="DD/MM/YYYY">
+              <mat-datepicker-toggle [for]="personBirthdate" class="button mat-icon-button"
+                                     matSuffix>
+                <mat-icon>calendar_today</mat-icon>
+              </mat-datepicker-toggle>
             </div>
-            <div class="member-info">
-                <span>Dr. {{name}} {{lastName}} <i class="fa fa-check-circle"></i> </span>
-                <p>{{speciality}}</p>
-                <div class="doctor-address">
-                    <span><i class="fa fa-map-marker color-location"></i> {{address}}</span>
-                    <span><i class="fa fa-calendar color-calendar"></i> {{openingHours}}</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="consultori-doctor">
-            <span class="consultori-title"><i class="fa fa-map-marker"></i> Consultorio</span>
-            <div class="map-location-doctor">
-                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1974.3388961751089!2d-73.35582219064237!3d8.235119192932915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677bec6ab0ce07%3A0xcf6f9dcb25b465a6!2sCentro%20Comercial%20Santa%20Maria!5e0!3m2!1ses!2sco!4v1699195990013!5m2!1ses!2sco"
-                         style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="appointment-form">
-        <h2>Solicitar cita</h2>
-        <form [formGroup]="scheduleAppointment" (ngSubmit)="sendScheduleAppointment()" >
-
-<!--            <div class="form-group">-->
-<!--                <label for="appointmentDate">Fecha de la Cita</label>-->
-<!--                <input placeholder="Ingrese la hora de la cita" formControlName="date" type="date" id="appointmentDate" name="appointmentDate">-->
-<!--            </div>-->
-
-          <div class="form-container datepicker-line">
-            <div class="form-group">
-              <label class="form-label">Fecha de nacimiento</label>
-              <div class="input-container">
-                <input [matDatepicker]="personBirthdate"
-                       [min]="dateNow" class="form-input"
-                       formControlName="date" matInput
-                       placeholder="DD/MM/YYYY">
-                <mat-datepicker-toggle [for]="personBirthdate" class="button mat-icon-button"
-                                       matSuffix>
-                  <mat-icon>calendar_today</mat-icon>
-                </mat-datepicker-toggle>
-              </div>
-              <mat-datepicker panelClass="datepickerOne" #personBirthdate></mat-datepicker>
-            </div>
+            <mat-datepicker panelClass="datepickerOne" #personBirthdate></mat-datepicker>
           </div>
-
-
-          <div class="form-group">
-                <label for="appointmentTime">Hora de la Cita</label>
-                <select formControlName="time" id="appointmentTime" name="appointmentTime">
-                    <option value="08:00">08:00-08:30</option>
-                    <option value="08:30">08:30-09:00</option>
-                    <option value="09:00">09:00-09:30</option>
-                    <option value="09:30">09:30-10:00</option>
-                    <option value="10:00">10:00-10:30</option>
-                    <option value="10:30">10:30-11:00</option>
-                    <option value="11:00">11:00-11:30</option>
-                    <option value="11:30">11:30-12:00</option>
-                    <option value="14:00">14:00-14:30</option>
-                    <option value="14:30">14:30-15:00</option>
-                    <option value="15:00">15:00-15:30</option>
-                    <option value="15:30">15:30-16:00</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="specialty">Especialidad</label>
-                <select formControlName="specialty" id="specialty" name="specialty">
-                    <option value="otorrinonaringologo">Otorrinolaringólogo</option>
-                </select>
-            </div>
-
-            <button type="submit" >Solicitar</button>
+          <div class="form-content">
+            <label for="appointmentTime">Hora de la Cita</label>
+            <select formControlName="time" id="appointmentTime" name="appointmentTime">
+              <option value="08:00">08:00-08:30</option>
+              <option value="08:30">08:30-09:00</option>
+              <option value="09:00">09:00-09:30</option>
+              <option value="09:30">09:30-10:00</option>
+              <option value="10:00">10:00-10:30</option>
+              <option value="10:30">10:30-11:00</option>
+              <option value="11:00">11:00-11:30</option>
+              <option value="11:30">11:30-12:00</option>
+              <option value="14:00">14:00-14:30</option>
+              <option value="14:30">14:30-15:00</option>
+              <option value="15:00">15:00-15:30</option>
+              <option value="15:30">15:30-16:00</option>
+            </select>
+          </div>
+          <div class="form-content">
+            <label for="specialty">Especialidad</label>
+            <select formControlName="specialty" id="specialty" name="specialty">
+              <option value="otorrinonaringologo">Otorrinolaringólogo</option>
+            </select>
+          </div>
+          <div class="form-content form-content-button">
+            <button class="btn-form-send" type="submit">Solicitar</button>
+          </div>
         </form>
+      </div>
+      <div class="content-info-doctor">
+        <div class="card-info-doctor">
+          <span>Telefono <em class="icon-phone"></em> </span>
+          <span>3183843124</span>
+        </div>
+        <div class="card-info-doctor">
+          <span>Correo <em class="icon-envelope"></em></span>
+          <span>jlquinterol@ufpso.edu.co</span>
+        </div>
+        <div class="card-info-doctor">
+          <span>Direccion <em class="icon-map"></em></span>
+          <span>Cra 16 # 6a - 63</span>
+        </div>
+      </div>
     </div>
 
-
+    <div class="main-doctor--top__right">
+      <div class="content-img">
+        <img src="assets/images/doc1.png" alt="Doctor img">
+      </div>
+    </div>
+  </div>
+  <div class="main-doctor--center">
+    <span>Mas informacion</span>
+  </div>
+  <div class="main-doctor--bottom">
+    <span>En esta parte va informacion sobre los doctores en general y agregar si se peude un listado de los doctores con la misma especialida del seleccionado</span>
+    <span>https://dribbble.com/shots/15946453/attachments/7779879?mode=media</span>
+    <span>https://dribbble.com/shots/20808320--Medical-Center-Clinic-Website-Landing-Page-Healthcare</span>
+  </div>
 </div>
 <app-footer></app-footer>
