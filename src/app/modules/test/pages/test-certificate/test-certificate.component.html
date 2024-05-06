@@ -8,7 +8,7 @@
   <div class="certificate-inf">
     <h1>Certificado de Audición</h1>
     <p>Por la presente, certificamos que</p>
-    <h2>{{ nombreUsuario }}</h2>
+    <h2>{{nameUser}}</h2>
     <p>ha completado con éxito la prueba {{nameTest}} y ha demostrado tener una excelente capacidad auditiva.</p>
     <p>Felicidades por cuidar de tu salud auditiva.</p>
     <div class="signature">
@@ -20,9 +20,8 @@
       </div>
     </div>
   </div>
-
-  <div class="download">
-
-    <button (click)="descargarCertificadoComoImagen()"> <i class="fa fa-download"></i> </button>
+  <div class="download" [ngClass]="downloadCompleted ? 'completed' : ''">
+    <button (click)="downloadCertificateAsImage()"> <i class="icon-download"></i> </button>
   </div>
 </div>
+

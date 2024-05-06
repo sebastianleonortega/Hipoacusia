@@ -2,48 +2,65 @@
 <div class="wrapper-main-doctor">
   <div class="main-doctor--top">
     <div class="main-doctor--top__left">
-      <span class="name-doctor">Dr. Jose Leonardo Quintero Leon</span>
-      <span class="speciality-doctor">Medico general</span>
-      <span class="info-speciality">Doctor especializado en medicina general para poder tratar a cualquier pacient, con amplia experiencia en el campo, soy graduado de la universidad de pamplona con varios certificados a nivel internacional, reconocido por la mayoria de hospitales ademas de esto no se que mas colocar en esta parte y tengo mucho sueño aiudaaa jajajajaja, tengo pereza pero tengo que terminar esta parte no se, no me termino de convencer mucho esta parte pero weno toca mirar como se arreglar para arreglarlo</span>
-      <div class="content-form-doctor">
-        <form [formGroup]="scheduleAppointment" (ngSubmit)="sendScheduleAppointment()">
-          <div class="form-content">
-            <label class="form-label">Fecha de nacimiento</label>
-            <div class="input-container">
-              <input [matDatepicker]="personBirthdate"
-                     [min]="dateNow" class="form-input"
-                     formControlName="date" matInput
-                     placeholder="DD/MM/YYYY">
-              <mat-datepicker-toggle [for]="personBirthdate" class="button mat-icon-button"
-                                     matSuffix>
-                <mat-icon>calendar_today</mat-icon>
-              </mat-datepicker-toggle>
+      <span class="name-doctor">{{doctor.doctor_name + " " + doctor.doctor_last_name }}</span>
+      <span class="speciality-doctor">Medico general</span><!--falta en el back-->
+      <span class="info-speciality">Doctor especializado en medicina general para poder tratar a cualquier pacient, con
+        amplia experiencia en el campo, soy graduado de la universidad de pamplona con varios certificados a nivel
+        internacional, reconocido por la mayoria de hospitales ademas de esto no se que mas colocar en esta parte y
+        tengo mucho sueño aiudaaa jajajajaja, tengo pereza pero tengo que terminar esta parte no se, no me termino de
+        convencer mucho esta parte pero weno toca mirar como se arreglar para arreglarlo</span>
+      <div class="content-form-doctor"><!--falta en el back-->
+        <form class="grid" [formGroup]="scheduleAppointment" (ngSubmit)="sendScheduleAppointment()">
+
+          <div class="col-6 md:col-6 lg:col-6">
+            <div class="form-container datepicker">
+              <div class="form-group">
+                <label class="form-label">Fecha de la cita</label>
+                <input [matDatepicker]="personBirthdate"
+                       appValidateErrors class="form-input"
+                       formControlName="birthdate" matInput
+                       placeholder="DD/MM/YYYY">
+                <mat-datepicker-toggle [for]="personBirthdate" class="button"
+                                       matSuffix>
+                </mat-datepicker-toggle>
+                <mat-datepicker panelClass="datepickerOne" #personBirthdate></mat-datepicker>
+              </div>
             </div>
-            <mat-datepicker panelClass="datepickerOne" #personBirthdate></mat-datepicker>
           </div>
-          <div class="form-content">
-            <label for="appointmentTime">Hora de la Cita</label>
-            <select formControlName="time" id="appointmentTime" name="appointmentTime">
-              <option value="08:00">08:00-08:30</option>
-              <option value="08:30">08:30-09:00</option>
-              <option value="09:00">09:00-09:30</option>
-              <option value="09:30">09:30-10:00</option>
-              <option value="10:00">10:00-10:30</option>
-              <option value="10:30">10:30-11:00</option>
-              <option value="11:00">11:00-11:30</option>
-              <option value="11:30">11:30-12:00</option>
-              <option value="14:00">14:00-14:30</option>
-              <option value="14:30">14:30-15:00</option>
-              <option value="15:00">15:00-15:30</option>
-              <option value="15:30">15:30-16:00</option>
-            </select>
+
+          <div class="col-6 md:col-6 lg:col-6">
+            <div class="form-container">
+              <div class="form-group">
+                <label class="form-label"> Hora de la Cita</label>
+                <ng-select [items]="appointmentTime"
+                           bindValue="value"
+                           bindLabel="label"
+                           appValidateErrors
+                           class=" custom-two form-ng-select"
+                           formControlName="time"
+                           placeholder="Seleccione una opción">
+                </ng-select>
+              </div>
+            </div>
           </div>
-          <div class="form-content">
-            <label for="specialty">Especialidad</label>
-            <select formControlName="specialty" id="specialty" name="specialty">
-              <option value="otorrinonaringologo">Otorrinolaringólogo</option>
-            </select>
+
+          <div class="col-6 md:col-6 lg:col-6">
+            <div class="form-container">
+              <div class="form-group">
+                <label class="form-label"> Especialidad</label>
+                <ng-select [items]="speciality"
+                           bindValue="value"
+                           bindLabel="label"
+                           appValidateErrors
+                           class=" custom-two form-ng-select"
+                           formControlName="specialty"
+                           placeholder="Seleccione una opción">
+                </ng-select>
+              </div>
+            </div>
           </div>
+
+
           <div class="form-content form-content-button">
             <button class="btn-form-send" type="submit">Solicitar</button>
           </div>
@@ -52,21 +69,21 @@
       <div class="content-info-doctor">
         <div class="card-info-doctor">
           <span>Telefono <em class="icon-phone"></em> </span>
-          <span>3183843124</span>
+          <span>{{doctor.doctor_phone}}</span>
         </div>
         <div class="card-info-doctor">
           <span>Correo <em class="icon-envelope"></em></span>
-          <span>jlquinterol@ufpso.edu.co</span>
+          <span>{{ doctor.doctor_email }}</span>
         </div>
         <div class="card-info-doctor">
           <span>Direccion <em class="icon-map"></em></span>
-          <span>Cra 16 # 6a - 63</span>
+          <span>{{ doctor.doctor_address }}</span>
         </div>
       </div>
     </div>
     <div class="main-doctor--top__right">
       <div class="content-img">
-        <img src="assets/images/doc1.png" alt="Doctor img">
+        <img [src]=doctor.doctor_image alt="Doctor img">
       </div>
     </div>
   </div>

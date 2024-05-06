@@ -1,12 +1,14 @@
 export interface Doctor {
-  id: number;
-  name: string;
-  lastname: string;
-  specialty: string;
-  img: string;
-  address: string;
-  openingHours: string;
-  experience: Experience[];
+  administrator: boolean;
+  doctor_address: string;
+  doctor_email: string ;
+  doctor_image: string;
+  doctor_last_name: string;
+  doctor_name: string;
+  doctor_phone: string;
+  profile_image: string;
+  user_id: string ;
+  user_name: string;
 }
 
 export interface Experience {

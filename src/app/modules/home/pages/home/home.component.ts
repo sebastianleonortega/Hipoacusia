@@ -41,96 +41,96 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  doctors: Doctor[] = [
-    {
-      id: 1,
-      name: 'Mario Alejandro',
-      lastname: 'Contreras Gutierrez',
-      specialty: 'Terapeuta complementario, Médico general',
-      img: 'assets/images/doc1.png',
-      openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
-      address: '',
-      experience: [
-        {
-
-          experienceName: 'Acupuntura'
-        },
-        {
-          experienceName: 'Terapia Neuronal'
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Sandrith Tatiana',
-      lastname: 'Guerrero Rincon',
-      specialty: 'Otorrinolaringologo',
-      img: 'assets/images/doc2.png',
-      openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
-      address: '',
-      experience: [
-        {
-          experienceName: 'Acupuntura'
-        },
-        {
-          experienceName: 'Terapia Neuronal'
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Edgardo Enrique',
-      lastname: 'Paba Gonzalez',
-      specialty: 'Otorrinolaringologo',
-      img: 'assets/images/doc3.png',
-      address: '',
-      openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
-      experience: [
-        {
-
-          experienceName: 'Acupuntura'
-        },
-        {
-          experienceName: 'Terapia Neuronal'
-        }
-      ]
-    },
-    {
-      id: 4,
-      name: 'Mildreth Amanda',
-      lastname: 'Carrascal Torrado',
-      specialty: 'Fonoaudiologo',
-      img: 'assets/images/doc4.png',
-      address: '',
-      openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
-      experience: [
-        {
-
-          experienceName: 'Acupuntura'
-        },
-        {
-          experienceName: 'Terapia Neuronal'
-        }
-      ]
-    },
-    {
-      id: 5,
-      name: 'Juan Carlos',
-      lastname: 'Jimenez Illera',
-      specialty: 'Fonoaudiologo',
-      img: 'assets/images/doc5.png',
-      address: '',
-      openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
-      experience: [
-        {
-
-          experienceName: 'Acupuntura'
-        },
-        {
-          experienceName: 'Terapia Neuronal'
-        }
-      ]
-    },
+  doctors: any[] = [
+    // {
+    //   id: 1,
+    //   name: 'Mario Alejandro',
+    //   lastname: 'Contreras Gutierrez',
+    //   specialty: 'Terapeuta complementario, Médico general',
+    //   img: 'assets/images/doc1.png',
+    //   openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
+    //   address: '',
+    //   experience: [
+    //     {
+    //
+    //       experienceName: 'Acupuntura'
+    //     },
+    //     {
+    //       experienceName: 'Terapia Neuronal'
+    //     }
+    //   ]
+    // },
+    // {
+    //   id: 2,
+    //   name: 'Sandrith Tatiana',
+    //   lastname: 'Guerrero Rincon',
+    //   specialty: 'Otorrinolaringologo',
+    //   img: 'assets/images/doc2.png',
+    //   openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
+    //   address: '',
+    //   experience: [
+    //     {
+    //       experienceName: 'Acupuntura'
+    //     },
+    //     {
+    //       experienceName: 'Terapia Neuronal'
+    //     }
+    //   ]
+    // },
+    // {
+    //   id: 3,
+    //   name: 'Edgardo Enrique',
+    //   lastname: 'Paba Gonzalez',
+    //   specialty: 'Otorrinolaringologo',
+    //   img: 'assets/images/doc3.png',
+    //   address: '',
+    //   openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
+    //   experience: [
+    //     {
+    //
+    //       experienceName: 'Acupuntura'
+    //     },
+    //     {
+    //       experienceName: 'Terapia Neuronal'
+    //     }
+    //   ]
+    // },
+    // {
+    //   id: 4,
+    //   name: 'Mildreth Amanda',
+    //   lastname: 'Carrascal Torrado',
+    //   specialty: 'Fonoaudiologo',
+    //   img: 'assets/images/doc4.png',
+    //   address: '',
+    //   openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
+    //   experience: [
+    //     {
+    //
+    //       experienceName: 'Acupuntura'
+    //     },
+    //     {
+    //       experienceName: 'Terapia Neuronal'
+    //     }
+    //   ]
+    // },
+    // {
+    //   id: 5,
+    //   name: 'Juan Carlos',
+    //   lastname: 'Jimenez Illera',
+    //   specialty: 'Fonoaudiologo',
+    //   img: 'assets/images/doc5.png',
+    //   address: '',
+    //   openingHours: '8:00 - 12:00 & 2:00 - 6:00 de lunes a viernes',
+    //   experience: [
+    //     {
+    //
+    //       experienceName: 'Acupuntura'
+    //     },
+    //     {
+    //       experienceName: 'Terapia Neuronal'
+    //     }
+    //   ]
+    // },
   ]
 
   showScrollButton = false;
@@ -145,10 +145,19 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.getAllDoctor();
   }
   scroll(){
     window.scrollTo(0, 0);
+  }
+
+  getAllDoctor(){
+    this._home.getAllDoctor().subscribe({
+      next : (data) => {
+        this.doctors = data;
+        console.log(this.doctors)
+      }
+    })
   }
 
   scrollToTop() {

@@ -8,7 +8,7 @@ import {DoctorRes} from "../../../auth/interface/home.interface";
 })
 export class DoctorService {
 
-  private apiUrl = 'http://localhost:8080/api/';
+  private apiUrl = 'http://localhost:8009/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class DoctorService {
     return this.http.post(this.apiUrl+"appointments", data);
   }
 
-  getDoctorById(id: string): Observable<DoctorRes> {
-    return this.http.get<DoctorRes>(this.apiUrl+"doctors/"+id);
+  getDoctorById(id: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl+"user/doctor/"+id);
   }
 }

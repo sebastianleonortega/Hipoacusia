@@ -96,8 +96,8 @@
       <button type="button">Buscar</button>
     </div>
     <div class="content-card-doctor">
-      <div class="card-doctor" *ngFor="let doctor of doctors" routerLink="/doctor/{{doctor.id}} ">
-        <img src="{{doctor.img}}" alt="Imagen del medico">
+      <div class="card-doctor" *ngFor="let doctor of doctors" routerLink="/doctor/{{doctor.user_id}}">
+        <img src="{{doctor.doctor_image}}" alt="Imagen del medico">
         <div class="social">
           <i class="fa fa-twitter color-blue"></i>
           <i class="fa fa-instagram color-red"></i>
@@ -105,8 +105,8 @@
           <i class="fa fa-facebook color-blue"></i>
         </div>
         <div class="member-info">
-          <span>Dr. {{ doctor.name }} {{ doctor.lastname }}</span>
-          <p>{{ doctor.specialty }}</p>
+          <span>Dr. {{ doctor.doctor_name }} {{ doctor.doctor_last_name }}</span>
+<!--          <p>{{ doctor.specialty }}</p>-->
         </div>
       </div>
     </div>

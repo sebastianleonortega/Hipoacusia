@@ -61,3 +61,18 @@
     //}
   }
 }
+
+.datepicker {
+
+  .form-input {
+    margin-top: 0 !important;
+    width: -webkit-fill-available !important;
+    height: auto !important;
+  }
+
+  .button {
+    position: absolute;
+    right: -3px;
+    top: 20px;
+  }
+}

@@ -104,14 +104,14 @@ export class RegisterComponent implements OnInit {
           next: () => {
             this._alert.success("Usuario registrado ");
             this.register.reset();
+            this._router.navigateByUrl("/").then();
           },
           error: ()=> {
-            this._alert.warning("Tenemos problemas, intentalo mas tarde");
-
+            this._alert.error("Tenemos problemas, intentalo mas tarde");
           }
         });
       }else{
-        this._alert.error("Las contraseñas no coinciden");
+        this._alert.warning("Las contraseñas no coinciden");
       }
 
     }else {

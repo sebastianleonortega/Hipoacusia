@@ -12,35 +12,46 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
   styleUrls: ['./test-certificate.component.scss']
 })
 export class TestCertificateComponent implements OnInit {
+
   @ViewChild('certificado') certificadoRef!: ElementRef;
 
-  @Input() nombreUsuario: string = 'Diany Garcia';
+  downloadCompleted: boolean = false;
+
+  nameUser: string = '';
+  nameTest: string = '';
   constructor(
-    @Inject(MAT_DIALOG_DATA) public nameTest: any,
+    @Inject(MAT_DIALOG_DATA) public dataTest: any,
 
     private dialogRef: MatDialogRef<TestNumericNewComponent>
-
 
   ) { }
 
   ngOnInit(): void {
+    this.nameUser = this.dataTest.nameUser;
+    this.nameTest = this.dataTest.nameTest;
   }
 
   close(): void {
     this.dialogRef.close();
   }
 
-  descargarCertificadoComoImagen(): void {
-    const certificadoElement = this.certificadoRef.nativeElement;
+  downloadCertificateAsImage(): void {
+    this.downloadCompleted = true;
 
-    html2canvas.default(certificadoElement).then((canvas: HTMLCanvasElement) => {
-      const imgData = canvas.toDataURL('image/png');
+    setTimeout(() => {
+      const element = this.certificadoRef.nativeElement;
 
-      const a = document.createElement('a');
-      a.href = imgData;
-      a.download = 'Certificado-Sound-good.png';
-      a.click();
-    });
+      html2canvas.default(element).then((canvas: HTMLCanvasElement) => {
+        const imgData = canvas.toDataURL('image/png');
+
+        const a = document.createElement('a');
+        a.href = imgData;
+        a.download = 'Certificado-Sound-good.png';
+        a.click();
+      });
+      this.downloadCompleted = false;
+    }, 500)
+
   }
 
 }

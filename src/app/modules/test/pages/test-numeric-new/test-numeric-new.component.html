@@ -17,7 +17,7 @@
   <div   class="display">
     <form [formGroup]="testForm" >
 
-      <input formControlName="input_numbers" type="text" id="userInput" >
+      <input formControlName="input_numbers" type="text" appValidateErrors id="userInput" >
       <img (click)="deleteLastInput()" src="assets/images/delete.png" alt="">
     </form>
 
@@ -59,7 +59,6 @@
     <em class="fa fa-close" (click)="closeModal()"></em>
   </div>
 
-
   <div class="title-result" style="
     display: flex;
     align-items: center;
@@ -89,7 +88,7 @@
     </div>
     <div class="btn-appointment">
       <button *ngIf="graphResult<=4" (click)="scheduleAppointment()">Agendar cita</button>
-      <button *ngIf="graphResult>4"  (click)="openModalTestCertificate()"  class="color-blue"><i class="fa fa-eye"></i></button>
+      <button *ngIf="graphResult>4"  (click)="openModalTestCertificate()"  class="color-blue"><i class="icon-eye"></i></button>
     </div>
   </div>
 

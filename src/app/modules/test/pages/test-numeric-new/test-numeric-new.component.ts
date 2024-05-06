@@ -1,10 +1,8 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TestNumericService} from "../../service/test-numeric.service";
 import {AlertService} from "../../../../core/services/alert.service";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-
-
 import {
   ArcElement,
   BarController,
@@ -36,8 +34,7 @@ import {UserResponseData} from "../../interfaces/test-left-right.interface";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {TestCertificateComponent} from "../test-certificate/test-certificate.component";
-import {Observable, Subject} from "rxjs";
-import {AppService} from "../../../../app.service";
+import {StorageService} from "../../../../core/services/storage.service";
 
 Chart.register(
   ArcElement,
@@ -67,59 +64,59 @@ Chart.register(
   ChartDataLabels
 );
 
-
 @Component({
   selector: 'app-test-numeric-new',
   templateUrl: './test-numeric-new.component.html',
   styleUrls: ['./test-numeric-new.component.scss']
 })
 
-
 export class TestNumericNewComponent implements OnInit {
+
   @ViewChild('monthlySalesGraph') private monthlySalesGraphRef!: ElementRef;
   public monthlySalesGraph!: Chart;
 
-
   public testForm: FormGroup = new FormGroup({});
+
   idAudio: number = 1;
-  graphResult!: number ;
+  graphResult: number = 5;
+
+  userData: any;
+  nameUser: string = "";
+  response: string[] = []
 
 
   constructor(
-    private renderer: Renderer2,
-    private _appService: AppService,
     private _test: TestNumericService,
     private _alert: AlertService,
     private _router: Router,
+    private _storage: StorageService,
     private dialog: MatDialog,
   ) {
+    this.userData = this._storage.getItem<any>('user_data');
   }
 
   ngOnInit(): void {
-
     this.playAudio();
     this.initFormTest();
 
     this._test.deleteSubmitResults().subscribe({
-      next: () =>{
+      next: () => {
       }
     });
+
+    this.nameUser = this.userData.person_name + " " + this.userData.person_last_name;
   }
 
 
   updateGraphResult(): void {
-
-
   }
 
 
   //grafica
   getMonthlySalesData() {
     const data: UserResponseData = {
-      name: 'Juan Sebastian',
+      name: this.nameUser,
       total_sales: this.graphResult,
-
-
     };
 
     const monthlySalesLabels: string[] = [data.name];
@@ -193,50 +190,39 @@ export class TestNumericNewComponent implements OnInit {
   }
 
   initGraph() {
-    const tiempoDeEspera = 2000; // 2000 milisegundos (2 segundos)
-
     setTimeout(() => {
       this.getMonthlySalesData();
 
-    }, tiempoDeEspera);
-
+    }, 2000); //2 segundos
   }
 
   initFormTest(): void {
     this.testForm = new FormGroup({
-      input_numbers: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(4)]),
+      input_numbers: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]),
     });
   }
 
   sendTest() {
-    console.log("no entro")
     if (this.testForm.valid) {
       const data: any = {
         inputNumbers: this.testForm.get('input_numbers')?.value,
       }
-      console.log("entro" + data)
 
-      this._test.submitResults(data).subscribe({
-        next: () => {
-          this._alert.success('Respuesta enviada correctamente');
-        },
-        error: (err) => {
-          console.error('Error al enviar la respuesta:', err);
-          this._alert.error('Error al enviar la respuesta');
+      this.response.push(data.inputNumbers);
+      console.log(this.response)
 
-        },
-      });
-
+      //limpiar el input
       const inputValue = '';
       this.testForm.get('input_numbers')?.setValue(inputValue);
 
       this.idAudio++;
-      this.playAudio();
+      // this.playAudio();
+
       if (this.idAudio === 8) {
         this._test.getResult().subscribe({
-          next: (data) =>{
+          next: (data) => {
             this.graphResult = parseFloat(data.toString());
-            console.log("data convertida mi perro"+this.graphResult +"y a no convertida"+ data)
+            console.log("data convertida mi perro" + this.graphResult + "y a no convertida" + data)
             localStorage.setItem('graphResult', this.graphResult.toString());
 
           }
@@ -268,14 +254,16 @@ export class TestNumericNewComponent implements OnInit {
 
   closeModal() {
     this.dialog.closeAll();
-
   }
 
   openModalTestCertificate() {
-    const nameTest = "numerica";
+    const data = {
+      nameTest: "numerica",
+      nameUser: this.nameUser
+    }
 
     this.dialog.open(TestCertificateComponent, {
-      data: nameTest,
+      data: data,
       width: '700px',
       height: '500px'
     })

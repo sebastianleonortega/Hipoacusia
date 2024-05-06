@@ -1,6 +1,7 @@
 .certificate {
   position: relative;
   width: 100%;
+  height: 98%;
   background-color: #f9f9f9;
   text-align: center;
 
@@ -39,10 +40,9 @@
 
   .certificate-inf {
     position: relative;
-    z-index: 1; // Coloca el texto encima de la imagen
-    padding: 50px; // Añade espacio alrededor del texto
+    z-index: 1;
+    padding: 50px;
     padding-top: 70px;
-    //background-color: rgba(255, 255, 255, 0.8);
     h1 {
       color: #333;
       margin-bottom: 20px;
@@ -92,15 +92,18 @@
     button{
       border: none;
       outline: none;
-      margin-top: 10px;
+      margin-top: 4px;
       margin-right: 6px;
       border-radius: 6px;
+      cursor: pointer;
       i{
-        font-size: 12px;
+        font-size: 20px;
       }
     }
   }
 
-
+  .completed {
+    display: none !important;
+  }
 
 }

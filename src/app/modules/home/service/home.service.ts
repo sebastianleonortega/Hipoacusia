@@ -7,10 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class HomeService {
 
-  private apiUrl = 'http://localhost:8080/api/test-audition';
+  private apiUrl = 'http://localhost:8009/';
 
   constructor(private http: HttpClient) {
   }
 
+
+  public getAllDoctor():Observable<any>{
+    return this.http.get(this.apiUrl + "user/doctor/");
+  }
 
 }
