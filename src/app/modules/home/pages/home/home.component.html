@@ -80,13 +80,9 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
-
   <div class="doctor">
-
     <div class="section-title">
       <h2 class="section-heading">Conoce a nuestros Doctores</h2>
       <p class="section-description">
@@ -95,15 +91,12 @@
         experiencia y horarios de atención.
       </p>
     </div>
-
     <div class="search-container">
       <input type="text" placeholder="Buscar...">
       <button type="button">Buscar</button>
     </div>
-
-
-    <div class="content-card-doctor"  >
-      <div class="card-doctor" *ngFor="let doctor of doctors"  routerLink="/doctor/{{doctor.id}} " >
+    <div class="content-card-doctor">
+      <div class="card-doctor" *ngFor="let doctor of doctors" routerLink="/doctor/{{doctor.id}} ">
         <img src="{{doctor.img}}" alt="Imagen del medico">
         <div class="social">
           <i class="fa fa-twitter color-blue"></i>
@@ -112,22 +105,16 @@
           <i class="fa fa-facebook color-blue"></i>
         </div>
         <div class="member-info">
-          <span>Dr. {{doctor.name}} {{doctor.lastname}}</span>
-          <p>{{doctor.specialty}}</p>
+          <span>Dr. {{ doctor.name }} {{ doctor.lastname }}</span>
+          <p>{{ doctor.specialty }}</p>
         </div>
       </div>
     </div>
-
-
   </div>
-
-
 </div>
-
 <div class="go-top-container" [class.show]="showScrollButton">
   <div class="btn" (click)="scrollToTop()">
     <img src="assets/images/arrow-top.png" alt="">
   </div>
 </div>
-
 <app-footer></app-footer>
