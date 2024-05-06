@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   public typeOfDocuments(): Observable<any>{
-    return this._http.get(this.api + 'security/hearing_loss/');
+    return this._http.get(this.api + 'security/document_type/');
   }
 
 }

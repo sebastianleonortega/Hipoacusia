@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
   }
 
   typeOfDocuments(){
-    this._auth.hearingLoss().subscribe({
+    this._auth.typeOfDocuments().subscribe({
       next : (data) => {
         this.typeDocuments = data;
       }
@@ -94,7 +94,8 @@ export class RegisterComponent implements OnInit {
           person_phone : this.register.get('person_phone')?.value,
           person_address : this.register.get('person_address')?.value,
           person_email : this.register.get('person_email')?.value,
-          type_of_hearing_loss : this.register.get('type_of_hearing_loss')?.value,
+          hearing_losses : [this.register.get('type_of_hearing_loss')?.value],
+          type_of_hearing_loss : "",
           previous_treatments : "",
         }
       }
@@ -105,7 +106,7 @@ export class RegisterComponent implements OnInit {
             this.register.reset();
           },
           error: ()=> {
-            this._alert.error("Tenemos problemas, intentalo mas tarde");
+            this._alert.warning("Tenemos problemas, intentalo mas tarde");
 
           }
         });
