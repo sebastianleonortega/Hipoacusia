@@ -40,7 +40,7 @@
         overflow: hidden;
         font-size: 18px;
         width: 100%;
-        height: 100px;
+        height: 110px;
         text-align: justify;
         color: theme-palette-color('font', 'subtitle');
       }
@@ -128,10 +128,10 @@
           align-items: center;
           flex-direction: column;
           justify-content: center;
-          gap: 12px;
+          gap: 4px;
           width: 30%;
-          height: 80px;
-          font-size: 20px;
+          height: 60px;
+          font-size: 18px;
           color: whitesmoke;
           border-radius: 4px;
           background-color: theme-palette-color('color', 'primary');
@@ -198,7 +198,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 400px;
+    height: 60px;
+    min-height: 60px;
     background: linear-gradient(90deg, white, theme-palette-color('color', 'primary'), theme-palette-color('color', 'primary'), theme-palette-color('color', 'secondary'), theme-palette-color('color', 'primary'), theme-palette-color('color', 'primary'), white);
 
     span {
@@ -209,14 +210,55 @@
   }
 
   .main-doctor--bottom {
-    //border: 1px solid red;
+    border: 1px solid red;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 32px;
     width: 100%;
     height: 800px;
-    padding: 12px;
+    padding: 24px;
+
+    .doctor-bottom--info {
+      font-size: 18px;
+      font-weight: 500;
+      color: theme-palette-color('font', 'title');
+    }
+
+    .doctor-bottom--content-card {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+
+      .card-bottom-doctor {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        color: white;
+        width: 280px;
+        height: 120px;
+        padding: 12px;
+        min-width: 280px;
+        min-height: 120px;
+        border-radius: 12px;
+        background-color: theme-palette-color('color', 'primary');
+
+        .text-title {
+          font-size: 20px;
+          font-weight: 500;
+        }
+
+        .text-content {
+          font-size: 14px;
+        }
+      }
+
+    }
   }
 
 }
