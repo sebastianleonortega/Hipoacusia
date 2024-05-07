@@ -86,8 +86,6 @@ export class DoctorComponent implements OnInit {
       next: (data) => {
         this.doctor = data;
         this.speciality = data.specialities;
-        console.log(this.speciality)
-        console.log(this.doctor)
       }
     })
   }
@@ -104,21 +102,14 @@ export class DoctorComponent implements OnInit {
   sendScheduleAppointment() {
     if (this.scheduleAppointment.valid) {
 
-      const selectedTime: string = this.scheduleAppointment.get('time')?.value;
-
-      // Asegúrate de que la cadena de tiempo tenga dos dígitos para las horas y minutos
-      const [hours, minutes] = selectedTime.split(':');
-      const formattedTime: string = `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
-
-      const localTime: LocalTime = LocalTime.parse(formattedTime);
 
       const data: any = {
         date: this.scheduleAppointment.get('date')?.value,
-        specialty: this.scheduleAppointment.get('specialty')?.value,
+        speciality: this.scheduleAppointment.get('specialty')?.value,
         address: this.doctor.doctor_address,
-        user: this.userData.user_id,
-        doctor: this.doctor.user_id,
-        time: localTime,
+        user_id: this.userData.user_id,
+        doctor_id: this.doctor.user_id,
+        time: this.scheduleAppointment.get('time')?.value,
       };
 
       console.log(data)

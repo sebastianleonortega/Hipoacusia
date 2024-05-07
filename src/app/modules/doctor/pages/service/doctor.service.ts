@@ -13,7 +13,7 @@ export class DoctorService {
   constructor(private http: HttpClient) { }
 
   public createAppointment(data: any):Observable<any>{
-    return this.http.post(this.apiUrl+"appointments", data);
+    return this.http.post(this.apiUrl+"appointment/", data);
   }
 
   getDoctorById(id: string): Observable<any> {
