@@ -36,6 +36,7 @@ export class DoctorComponent implements OnInit {
     profile_image: "",
     user_id: "",
     user_name: "",
+    doctor_description: "",
   };
 
 

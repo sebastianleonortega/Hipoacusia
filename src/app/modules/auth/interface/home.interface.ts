@@ -9,6 +9,7 @@ export interface Doctor {
   profile_image: string;
   user_id: string ;
   user_name: string;
+  doctor_description: string;
 }
 
 export interface Experience {

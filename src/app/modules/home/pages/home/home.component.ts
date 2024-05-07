@@ -155,7 +155,6 @@ export class HomeComponent implements OnInit {
     this._home.getAllDoctor().subscribe({
       next : (data) => {
         this.doctors = data;
-        console.log(this.doctors)
       }
     })
   }

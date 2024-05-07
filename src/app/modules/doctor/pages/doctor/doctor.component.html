@@ -2,13 +2,9 @@
 <div class="wrapper-main-doctor">
   <div class="main-doctor--top">
     <div class="main-doctor--top__left">
-      <span class="name-doctor">{{doctor.doctor_name + " " + doctor.doctor_last_name }}</span>
+      <span class="name-doctor">{{ doctor.doctor_name + " " + doctor.doctor_last_name }}</span>
       <span class="speciality-doctor">Medico general</span><!--falta en el back-->
-      <span class="info-speciality">Doctor especializado en medicina general para poder tratar a cualquier pacient, con
-        amplia experiencia en el campo, soy graduado de la universidad de pamplona con varios certificados a nivel
-        internacional, reconocido por la mayoria de hospitales ademas de esto no se que mas colocar en esta parte y
-        tengo mucho sueño aiudaaa jajajajaja, tengo pereza pero tengo que terminar esta parte no se, no me termino de
-        convencer mucho esta parte pero weno toca mirar como se arreglar para arreglarlo</span>
+      <span class="info-speciality">{{ doctor.doctor_description }}</span>
       <div class="content-form-doctor"><!--falta en el back-->
         <form class="grid" [formGroup]="scheduleAppointment" (ngSubmit)="sendScheduleAppointment()">
 
@@ -62,14 +58,14 @@
 
 
           <div class="form-content form-content-button">
-            <button class="btn-form-send" type="submit" (click)="asd()" >Solicitar</button>
+            <button class="btn-form-send" type="submit" (click)="asd()">Solicitar</button>
           </div>
         </form>
       </div>
       <div class="content-info-doctor">
         <div class="card-info-doctor">
           <span>Telefono <em class="icon-phone"></em> </span>
-          <span>{{doctor.doctor_phone}}</span>
+          <span>{{ doctor.doctor_phone }}</span>
         </div>
         <div class="card-info-doctor">
           <span>Correo <em class="icon-envelope"></em></span>
@@ -87,24 +83,24 @@
       </div>
     </div>
   </div>
-<!--  <div class="main-doctor&#45;&#45;center">-->
-<!--    <span>Mas informacion</span>-->
-<!--  </div>-->
-<!--  <div class="main-doctor&#45;&#45;bottom">-->
-<!--    <span class="doctor-bottom&#45;&#45;info">Nuestros doctores asociados son especialistas en cada area que tiene como fin el tratamiento de las enfermedades auditivas</span>-->
-<!--    <div class="doctor-bottom&#45;&#45;content-card">-->
-<!--      <div class="card-bottom-doctor">-->
-<!--        <span class="text-title">Medicos calificados</span>-->
-<!--        <span class="text-content">Medicos certificados para el tratamiento de las personas</span>-->
-<!--      </div>-->
-<!--      <div class="card-bottom-doctor">-->
-<!--        <span class="text-title">Informacion online</span>-->
-<!--        <span class="text-content">Tendras acceso desde cualquier lado a nuestra plataforma</span>-->
-<!--      </div>-->
-<!--      <div class="card-bottom-doctor">-->
-<!--        <span class="text-title">Servicio privado</span>-->
-<!--        <span class="text-content">Tu informacion esta asegurada con nosotros</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <!--  <div class="main-doctor&#45;&#45;center">-->
+  <!--    <span>Mas informacion</span>-->
+  <!--  </div>-->
+  <!--  <div class="main-doctor&#45;&#45;bottom">-->
+  <!--    <span class="doctor-bottom&#45;&#45;info">Nuestros doctores asociados son especialistas en cada area que tiene como fin el tratamiento de las enfermedades auditivas</span>-->
+  <!--    <div class="doctor-bottom&#45;&#45;content-card">-->
+  <!--      <div class="card-bottom-doctor">-->
+  <!--        <span class="text-title">Medicos calificados</span>-->
+  <!--        <span class="text-content">Medicos certificados para el tratamiento de las personas</span>-->
+  <!--      </div>-->
+  <!--      <div class="card-bottom-doctor">-->
+  <!--        <span class="text-title">Informacion online</span>-->
+  <!--        <span class="text-content">Tendras acceso desde cualquier lado a nuestra plataforma</span>-->
+  <!--      </div>-->
+  <!--      <div class="card-bottom-doctor">-->
+  <!--        <span class="text-title">Servicio privado</span>-->
+  <!--        <span class="text-content">Tu informacion esta asegurada con nosotros</span>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 </div>
