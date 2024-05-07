@@ -3,7 +3,8 @@
   <div class="main-doctor--top">
     <div class="main-doctor--top__left">
       <span class="name-doctor">{{ doctor.doctor_name + " " + doctor.doctor_last_name }}</span>
-      <span class="speciality-doctor">Medico general</span><!--falta en el back-->
+      <span class="speciality-doctor" *ngFor="let speciality of speciality">{{ speciality.speciality_name }}</span>
+      <!--falta en el back-->
       <span class="info-speciality">{{ doctor.doctor_description }}</span>
       <div class="content-form-doctor"><!--falta en el back-->
         <form class="grid" [formGroup]="scheduleAppointment" (ngSubmit)="sendScheduleAppointment()">
@@ -45,8 +46,8 @@
               <div class="form-group">
                 <label class="form-label"> Especialidad</label>
                 <ng-select [items]="speciality"
-                           bindValue="value"
-                           bindLabel="label"
+                           bindValue="speciality_id"
+                           bindLabel="speciality_name"
                            appValidateErrors
                            class=" custom-two form-ng-select"
                            formControlName="specialty"

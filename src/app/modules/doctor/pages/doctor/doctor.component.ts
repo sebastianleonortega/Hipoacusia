@@ -37,6 +37,7 @@ export class DoctorComponent implements OnInit {
     user_id: "",
     user_name: "",
     doctor_description: "",
+    specialities: [],
   };
 
 
@@ -84,7 +85,8 @@ export class DoctorComponent implements OnInit {
     this._doctor.getDoctorById(this.doctorId).subscribe({
       next: (data) => {
         this.doctor = data;
-        // this.speciality = data.speciality;   <- falta en el back, para listar las especialidades del doctor
+        this.speciality = data.specialities;
+        console.log(this.speciality)
         console.log(this.doctor)
       }
     })

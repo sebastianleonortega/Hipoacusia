@@ -147,13 +147,15 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllDoctor();
   }
-  scroll(){
+
+  scroll() {
     window.scrollTo(0, 0);
   }
 
-  getAllDoctor(){
+  getAllDoctor() {
     this._home.getAllDoctor().subscribe({
-      next : (data) => {
+      next: (data) => {
+        console.log(data)
         this.doctors = data;
       }
     })
@@ -186,13 +188,6 @@ export class HomeComponent implements OnInit {
   OnDoctor() {
     this._router.navigateByUrl('/doctor');
   }
-
-
-
-
-
-
-
 
 
 }
