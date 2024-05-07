@@ -15,7 +15,7 @@ export class ReminderComponent implements OnInit {
 
   medicationList: boolean = true;
 
-  medicamentos = [
+  medicines = [
     { 'id': 1, 'nombre': 'Alprazolam 0.25mg Tableta' },
     { 'id': 2, 'nombre': 'Alprazolam 0.5mg Tableta' },
     { 'id': 3, 'nombre': 'Clonazepam 0.5mg Tableta' },
@@ -52,45 +52,34 @@ export class ReminderComponent implements OnInit {
     { 'id': 34, 'nombre': 'Aciclovir 5% Ungüento Tópico' },
   ]
 
-
   public reminderForm: FormGroup = new FormGroup({});
 
-
-
   reminders: any;
-
-
-
-  showForm() {
-    this.medicationList = false;
-  }
-  showReminder(){
-    this.medicationList = true;
-  }
-
 
 
   constructor(
     private _alert : AlertService,
     public dialog: MatDialog,
     public reminder: ReminderService,
-
   ) { }
 
   ngOnInit(): void {
+
     this.initFormReminder();
     this.getAllReminder();
   }
 
   initFormReminder(): void {
     this.reminderForm = new FormGroup({
-      nameMedicine: new FormControl('', [Validators.required]),
+      nameMedicine: new FormControl(null, [Validators.required]),
       time: new FormControl('', [Validators.required, ]),
 
     });
   }
 
-
+  showFormAndReminder() {
+    this.medicationList = !this.medicationList;
+  }
 
   onSubmit() {
     if (this.reminderForm.valid) {

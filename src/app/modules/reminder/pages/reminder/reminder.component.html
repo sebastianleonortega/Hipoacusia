@@ -10,37 +10,63 @@
       <li *ngFor="let reminder of reminders; let i = index">
         <span class="name-reminder">{{ reminder.medicine }}</span>
         <span class="time-reminder"> <i class="fa fa-clock-o"></i> {{ reminder.time.slice(0, -3) }}</span>
-
         <button class=" btn-edit-reminder">Editar</button>
-        <button (click)="deleteReminder(reminder)" class="btn-delete-reminder" type="button"><i class="fa fa-trash"></i></button>
-
-
+        <button (click)="deleteReminder(reminder)" class="btn-delete-reminder" type="button"><i class="fa fa-trash"></i>
+        </button>
       </li>
     </ul>
-    <button class="pad" (click)="showForm()">Agregar Recordatorio</button>
+    <button class="pad" (click)="showFormAndReminder()">Agregar Recordatorio</button>
   </div>
 
 
   <div class="reminder-agg" *ngIf="!medicationList">
     <h2>Agregar Recordatorio</h2>
-    <form class="form-reminder" [formGroup]="reminderForm" (ngSubmit)="onSubmit()">
-      <label for="nombreMedicamento">Medicamento</label>
-      <select id="nombreMedicamento" formControlName="nameMedicine" required>
-        <option value="" disabled selected>Selecciona un medicamento</option>
-        <option *ngFor="let medicamento of medicamentos" [value]="medicamento.nombre">
-          {{ medicamento.nombre }}
-        </option>
-      </select>
+    <form class="form-reminder grid" [formGroup]="reminderForm" (ngSubmit)="onSubmit()">
+      <!--      <label for="nombreMedicamento">Medicamento</label>-->
+      <!--      <select id="nombreMedicamento" formControlName="nameMedicine" required>-->
+      <!--        <option value="" disabled selected>Selecciona un medicamento</option>-->
+      <!--        <option *ngFor="let medicamento of medicines" [value]="medicamento.nombre">-->
+      <!--          {{ medicamento.nombre }}-->
+      <!--        </option>-->
+      <!--      </select>-->
 
-      <label for="hora">Hora del Recordatorio</label>
-      <input type="time" id="hora" formControlName="time" required>
-
-      <div class="button-container">
-        <div class="btn-left">
-          <button class="btn-estandar" type="button" (click)="showReminder()"><i class="fa fa-arrow-left"></i></button>
+      <div class="col-12">
+        <div class="form-container">
+          <div class="form-group">
+            <label class="form-label">Tipo de medicamento</label>
+            <ng-select [items]="medicines"
+                       bindValue="id"
+                       bindLabel="nombre"
+                       appValidateErrors
+                       class=" custom-two form-ng-select"
+                       formControlName="nameMedicine"
+                       placeholder="Seleccione una opción">
+            </ng-select>
+          </div>
         </div>
-        <div class="btn-save-reminder">
-          <button class="btn-estandar" type="submit">Guardar</button>
+      </div>
+      <div class="col-12">
+        <div class="form-container">
+          <div class="form-group">
+            <label class="form-label"> Hora del recordatorio</label>
+            <input class="form-input" appValidateErrors type="time" placeholder="" formControlName="time">
+            <span class="form-line"></span>
+          </div>
+        </div>
+      </div>
+
+      <!--      <label for="hora">Hora del Recordatorio</label>-->
+      <!--      <input type="time" id="hora" formControlName="time" required>-->
+
+      <div class="col-12">
+        <div class="button-container">
+          <div class="btn-left">
+            <button class="btn-estandar" type="button" (click)="showFormAndReminder()"><i class="icon-arrow-left"></i>
+            </button>
+          </div>
+          <div class="btn-save-reminder">
+            <button class="btn-estandar" type="submit">Guardar</button>
+          </div>
         </div>
       </div>
     </form>
