@@ -17,7 +17,7 @@
               <div class="form-group">
                 <label class="form-label">Fecha de la cita</label>
                 <input [matDatepicker]="personBirthdate"
-                       appValidateErrors class="form-input"
+                       [min]="dateNow" appValidateErrors class="form-input"
                        formControlName="birthdate" matInput
                        placeholder="DD/MM/YYYY">
                 <mat-datepicker-toggle [for]="personBirthdate" class="button"
