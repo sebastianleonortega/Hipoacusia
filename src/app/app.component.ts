@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {LoadingService} from "./core/services/loading.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sound Good';
+  loading = this._loader.loading$;
+
+  constructor(
+    private _loader: LoadingService
+  ) {
+  }
 }

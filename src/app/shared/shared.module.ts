@@ -13,6 +13,7 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MessageErrorsDirective} from "./directives/field-errors/directive/message-errors.directive";
 import {InputMaskDirective} from "./directives/input-mask/input-mask.directive";
 import {TemplateErrorComponent} from "./directives/field-errors/template-error/template-error.component";
+import { LoadingComponent } from './layouts/loading/loading.component';
 
 
 
@@ -24,7 +25,8 @@ import {TemplateErrorComponent} from "./directives/field-errors/template-error/t
     HeaderMedicalComponent,
     InputMaskDirective,
     MessageErrorsDirective,
-    TemplateErrorComponent
+    TemplateErrorComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import {TemplateErrorComponent} from "./directives/field-errors/template-error/t
     MatNativeDateModule,
     InputMaskDirective,
     MessageErrorsDirective,
-    TemplateErrorComponent
+    TemplateErrorComponent,
+    LoadingComponent
 
 
   ]

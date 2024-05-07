@@ -3,7 +3,7 @@
   flex-direction: column;
   //gap: 10px;
   width: 100%;
-  height: 100%;
+  height: auto;
 
   .main-doctor--top {
     display: flex;
@@ -11,7 +11,6 @@
     justify-content: center;
     gap: 12px;
     width: 100%;
-    height: 800px;
     padding: 12px;
 
     .main-doctor--top__left {
@@ -21,7 +20,7 @@
       justify-content: flex-start;
       gap: 16px;
       width: 60%;
-      height: 660px;
+      height: 610px;
       padding: 32px;
 
       .name-doctor {
@@ -40,7 +39,7 @@
         overflow: hidden;
         font-size: 18px;
         width: 100%;
-        height: 110px;
+        height: 130px;
         text-align: justify;
         color: theme-palette-color('font', 'subtitle');
       }
@@ -188,71 +187,71 @@
 
   }
 
-  .main-doctor--center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 60px;
-    min-height: 60px;
-    background: linear-gradient(90deg, white, theme-palette-color('color', 'primary'), theme-palette-color('color', 'primary'), theme-palette-color('color', 'secondary'), theme-palette-color('color', 'primary'), theme-palette-color('color', 'primary'), white);
+  //.main-doctor--center {
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: center;
+  //  width: 100%;
+  //  height: 60px;
+  //  min-height: 60px;
+  //  background: linear-gradient(90deg, white, theme-palette-color('color', 'primary'), theme-palette-color('color', 'primary'), theme-palette-color('color', 'secondary'), theme-palette-color('color', 'primary'), theme-palette-color('color', 'primary'), white);
+  //
+  //  span {
+  //    font-size: 26px;
+  //    font-weight: 500;
+  //    color: white;
+  //  }
+  //}
 
-    span {
-      font-size: 26px;
-      font-weight: 500;
-      color: white;
-    }
-  }
-
-  .main-doctor--bottom {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 32px;
-    width: 100%;
-    height: 800px;
-    padding: 24px;
-
-    .doctor-bottom--info {
-      font-size: 18px;
-      font-weight: 500;
-      color: theme-palette-color('font', 'title');
-    }
-
-    .doctor-bottom--content-card {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      width: 100%;
-      height: auto;
-
-      .card-bottom-doctor {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        gap: 6px;
-        color: white;
-        width: 280px;
-        height: 120px;
-        padding: 12px;
-        min-width: 280px;
-        min-height: 120px;
-        border-radius: 12px;
-        background-color: theme-palette-color('color', 'primary');
-
-        .text-title {
-          font-size: 20px;
-          font-weight: 500;
-        }
-
-        .text-content {
-          font-size: 14px;
-        }
-      }
-
-    }
-  }
+  //.main-doctor--bottom {
+  //  display: flex;
+  //  align-items: center;
+  //  flex-direction: column;
+  //  justify-content: flex-start;
+  //  gap: 32px;
+  //  width: 100%;
+  //  height: 800px;
+  //  padding: 24px;
+  //
+  //  .doctor-bottom--info {
+  //    font-size: 18px;
+  //    font-weight: 500;
+  //    color: theme-palette-color('font', 'title');
+  //  }
+  //
+  //  .doctor-bottom--content-card {
+  //    display: flex;
+  //    justify-content: space-evenly;
+  //    flex-wrap: wrap;
+  //    width: 100%;
+  //    height: auto;
+  //
+  //    .card-bottom-doctor {
+  //      display: flex;
+  //      align-items: center;
+  //      flex-direction: column;
+  //      justify-content: center;
+  //      gap: 6px;
+  //      color: white;
+  //      width: 280px;
+  //      height: 120px;
+  //      padding: 12px;
+  //      min-width: 280px;
+  //      min-height: 120px;
+  //      border-radius: 12px;
+  //      background-color: theme-palette-color('color', 'primary');
+  //
+  //      .text-title {
+  //        font-size: 20px;
+  //        font-weight: 500;
+  //      }
+  //
+  //      .text-content {
+  //        font-size: 14px;
+  //      }
+  //    }
+  //
+  //  }
+  //}
 
 }

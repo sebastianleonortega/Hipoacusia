@@ -6,6 +6,7 @@ import {DoctorService} from "../service/doctor.service";
 import {LocalTime} from 'js-joda';
 import {ActivatedRoute} from '@angular/router';
 import {StorageService} from "../../../../core/services/storage.service";
+import {LoadingService} from "../../../../core/services/loading.service";
 
 
 @Component({
@@ -38,24 +39,24 @@ export class DoctorComponent implements OnInit {
   };
 
 
-   appointmentTime = [
-    { value: '08:00', label: '08:00-08:30' },
-    { value: '08:30', label: '08:30-09:00' },
-    { value: '09:00', label: '09:00-09:30' },
-    { value: '09:30', label: '09:30-10:00' },
-    { value: '10:00', label: '10:00-10:30' },
-    { value: '10:30', label: '10:30-11:00' },
-    { value: '11:00', label: '11:00-11:30' },
-    { value: '11:30', label: '11:30-12:00' },
-    { value: '14:00', label: '14:00-14:30' },
-    { value: '14:30', label: '14:30-15:00' },
-    { value: '15:00', label: '15:00-15:30' },
-    { value: '15:30', label: '15:30-16:00' }
+  appointmentTime = [
+    {value: '08:00', label: '08:00-08:30'},
+    {value: '08:30', label: '08:30-09:00'},
+    {value: '09:00', label: '09:00-09:30'},
+    {value: '09:30', label: '09:30-10:00'},
+    {value: '10:00', label: '10:00-10:30'},
+    {value: '10:30', label: '10:30-11:00'},
+    {value: '11:00', label: '11:00-11:30'},
+    {value: '11:30', label: '11:30-12:00'},
+    {value: '14:00', label: '14:00-14:30'},
+    {value: '14:30', label: '14:30-15:00'},
+    {value: '15:00', label: '15:00-15:30'},
+    {value: '15:30', label: '15:30-16:00'}
   ];
 
   speciality: any[] = [
-    { value: '1', label: 'Otorrinonaringonohpta' }, //mientras se pone en el back, abajo donde se trae el doctor esta lo otro
-    { value: '1', label: 'Medicina general🤷‍♂️' },
+    {value: '1', label: 'Otorrinonaringonohpta'}, //mientras se pone en el back, abajo donde se trae el doctor esta lo otro
+    {value: '1', label: 'Medicina general🤷‍♂️'},
   ];
 
 
@@ -63,7 +64,8 @@ export class DoctorComponent implements OnInit {
     private _doctor: DoctorService,
     private _alert: AlertService,
     private route: ActivatedRoute,
-    private _storage: StorageService
+    private _storage: StorageService,
+    private _loader: LoadingService
   ) {
     this.userData = this._storage.getItem<any>('user_data');
   }
@@ -122,7 +124,7 @@ export class DoctorComponent implements OnInit {
       this._doctor.createAppointment(data).subscribe({
         error: () => {
           this._alert.warning("Ya existe una cita registrada en esta fecha y hora");
-        }, next: (error) =>{
+        }, next: (error) => {
           window.scrollTo(0, 0);
           this.scheduleAppointment.reset();
           this._alert.success("Cita registrada");
@@ -130,6 +132,14 @@ export class DoctorComponent implements OnInit {
       });
     }
 
+  }
+
+  asd(): void {
+    this._loader.show();
+    console.log('asd');
+    setTimeout(() => {
+      this._loader.hide();
+    }, 3000)
   }
 
 }
