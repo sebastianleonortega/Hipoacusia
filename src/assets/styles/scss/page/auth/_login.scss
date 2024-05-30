@@ -8,8 +8,8 @@
   background-color: theme-palette-color('color', 'primary');
 
   .login-container {
-    width: 96%;
-    height: 96%;
+    width: 80%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@
 
       img {
         border-radius: 8px;
-        max-width: 100%;
+        max-width: 80%;
       }
     }
   }

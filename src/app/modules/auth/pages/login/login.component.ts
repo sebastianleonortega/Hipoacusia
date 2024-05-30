@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
       }
       this._auth.login(data).subscribe({
         next : (resp) => {
-          console.log(resp)
           this._storage.setItem('user_data', resp);
           this._storage.setItem('token', resp.token);
           this._alert.success("Bienvenido");

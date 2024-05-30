@@ -89,14 +89,12 @@ export class GraphUserComponent implements OnInit {
 
   constructor(private _appService: AppService) {
     this._appService.getGraphResult.subscribe((graphResultValue) => {
-      console.log(graphResultValue);
     })
   }
 
   ngOnInit(): void {
     this.initGraph();
     this.initGraph1();
-    console.log("GraphUserComponent");
 
     const graphResultFromLocalStorage = localStorage.getItem('graphResult');
     const graphResultFromLocalStorageRight = localStorage.getItem('counterRight');
@@ -104,7 +102,6 @@ export class GraphUserComponent implements OnInit {
 
     if (graphResultFromLocalStorage !== null) {
       this.resultGraph = +graphResultFromLocalStorage;
-      console.log(this.resultGraph)
     }
 
     if (graphResultFromLocalStorageRight !== null) {

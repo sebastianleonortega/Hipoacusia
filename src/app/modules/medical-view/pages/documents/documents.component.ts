@@ -35,7 +35,7 @@ export class DocumentsComponent implements OnInit {
   showDocuments() {
     // Puedes implementar lógica adicional aquí si es necesario.
     // Por ahora, simplemente muestra los documentos en la consola.
-    console.log('Mostrar documentos:', this.documents);
+    // console.log('Mostrar documentos:', this.documents);
   }
 
 }

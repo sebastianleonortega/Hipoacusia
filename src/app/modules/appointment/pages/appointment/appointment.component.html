@@ -3,31 +3,27 @@
     <em class="fa fa-close" (click)="close()"></em>
   </div>
 
-  <div class="appointment-list" *ngIf="!noDate">
+  <div class="appointment-list">
     <h2>Mis Citas</h2>
     <ul>
 
     <li *ngFor="let cita of citas; let i = index">
       <div class="info-appointment">
-        <span>Médico: {{ cita.doctor.name }} {{ cita.doctor.lastName }}</span>
-        <span>Especialidad: {{ cita.doctor.speciality }}</span>
-        <span>Fecha: {{ cita.date.split('T')[0] }}</span>
-        <span>Hora: {{ cita.time }}</span>
-        <button (click)="deleteAppointment(cita)" class="btn-banger">Cancelar cita</button>
+        <span>Dirección: {{ cita.appointment_address}}</span>
+        <span>Especialidad: {{ cita.speciality_name }}</span>
+        <span>Fecha: {{ cita.appointment_date.split('T')[0] }}</span>
+        <span>Hora: {{ cita.appointment_time }}</span>
+        <button (click)="deleteAppointment(cita.appointment_id)" class="btn-banger">Cancelar cita</button>
       </div>
-      <div class="appointment-map">
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1974.3388961751089!2d-73.35582219064237!3d8.235119192932915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677bec6ab0ce07%3A0xcf6f9dcb25b465a6!2sCentro%20Comercial%20Santa%20Maria!5e0!3m2!1ses!2sco!4v1699195990013!5m2!1ses!2sco"
-                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="appointment-img-doctor">
+        <img [src]="cita.doctor_image" alt="">
+        <span>{{ cita.doctor_name }} {{ cita.doctor_last_name }}</span>
+
       </div>
     </li>
     </ul>
 
   </div>
 
-
-
-  <div class="there-is-no" *ngIf="noDate">
-    no tiene citas
-  </div>
 
 </div>

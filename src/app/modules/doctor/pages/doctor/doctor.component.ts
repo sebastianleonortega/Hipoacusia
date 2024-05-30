@@ -101,39 +101,28 @@ export class DoctorComponent implements OnInit {
 
   sendScheduleAppointment() {
     if (this.scheduleAppointment.valid) {
-
-
+      this._loader.show();
       const data: any = {
         date: this.scheduleAppointment.get('date')?.value,
-        speciality: this.scheduleAppointment.get('specialty')?.value,
+        speciality_id: this.scheduleAppointment.get('specialty')?.value,
         address: this.doctor.doctor_address,
-        user_id: this.userData.user_id,
+        person_id: this.userData.user_id,
         doctor_id: this.doctor.user_id,
         time: this.scheduleAppointment.get('time')?.value,
       };
 
-      console.log(data)
-
-
       this._doctor.createAppointment(data).subscribe({
-        error: () => {
-          this._alert.warning("Ya existe una cita registrada en esta fecha y hora");
-        }, next: (error) => {
-          window.scrollTo(0, 0);
+        next: () => {
           this.scheduleAppointment.reset();
           this._alert.success("Cita registrada");
+          this._loader.hide();
+        }, error: () => {
+          this._loader.hide();
+          this._alert.warning("Ya existe una cita registrada en esta fecha y hora");
         }
       });
     }
 
-  }
-
-  asd(): void {
-    this._loader.show();
-    console.log('asd');
-    setTimeout(() => {
-      this._loader.hide();
-    }, 3000)
   }
 
 }

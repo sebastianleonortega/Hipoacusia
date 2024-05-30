@@ -3,7 +3,13 @@
   <div class="content-carousel">
     <swiper [config]="config">
       <ng-template swiperSlide *ngFor="let slide of slides">
-        <img class="img-carrousel" [src]="slide.image" alt="image"/>
+        <div class="slide-container">
+          <img class="img-carrousel" [src]="slide.image" alt="image"/>
+          <div class="text-overlay">
+            <span>{{ slide.text }}</span>
+            <button class="btn-general">Ir</button>
+          </div>
+        </div>
       </ng-template>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
@@ -14,74 +20,74 @@
       <button class="swiper-button-next"></button>
     </swiper>
   </div>
-  <div class="wrapper-test">
-    <div class="test-container">
-      <div class="test-title">
-        <h2>Realiza nuestras pruebas de sonido</h2>
-      </div>
-      <div class="test-description">
-      <span>En esta sección, los usuarios pueden realizar dos tipos de pruebas de audición: la Prueba
-        de Números y la Prueba de Sonido Derecho e Izquierdo. Estas pruebas están diseñadas para evaluar
-        la capacidad auditiva y ayudar a identificar posibles problemas de audición. A continuación,
-        se describen brevemente ambas pruebas:</span>
-      </div>
-      <div class="sound-tests">
-        <div class="test-numeric">
-          <div class="test-title-sound">
-            <h2>Prueba de Sonido numerico</h2>
-          </div>
-          <div class="test-description-proof">
-          <span>La Prueba de Números evalúa la capacidad del usuario para escuchar y reconocer números
-            en diferentes entornos auditivos. Durante la prueba, se reproducirán secuencias de números
-            y el usuario deberá ingresar los números que escuche. Esta prueba puede ayudar a detectar
-            dificultades en la percepción de números, lo que puede ser especialmente importante en
-            situaciones cotidianas como hablar por teléfono o seguir conversaciones.</span>
-          </div>
-          <div class="instruction-test">
-            <div class="instruction">
-              <span>Instrucciones:</span>
-                <ul>
-                  <li>Se reproducirán secuencias de números.</li>
-                  <li>Escucha atentamente y escribe los números que escuches.</li>
-                  <li>La prueba evaluará la precisión de tus respuestas.</li>
-                  <li>La prueba iniciara cuando toque la imagen <img style="width: 40px; " src="assets/images/arrowleft.png" alt=""> </li>
-                </ul>
+<!--  <div class="wrapper-test">-->
+<!--    <div class="test-container">-->
+<!--      <div class="test-title">-->
+<!--        <h2>Realiza nuestras pruebas de sonido</h2>-->
+<!--      </div>-->
+<!--      <div class="test-description">-->
+<!--      <span>En esta sección, los usuarios pueden realizar dos tipos de pruebas de audición: la Prueba-->
+<!--        de Números y la Prueba de Sonido Derecho e Izquierdo. Estas pruebas están diseñadas para evaluar-->
+<!--        la capacidad auditiva y ayudar a identificar posibles problemas de audición. A continuación,-->
+<!--        se describen brevemente ambas pruebas:</span>-->
+<!--      </div>-->
+<!--      <div class="sound-tests">-->
+<!--        <div class="test-numeric">-->
+<!--          <div class="test-title-sound">-->
+<!--            <h2>Prueba de Sonido numerico</h2>-->
+<!--          </div>-->
+<!--          <div class="test-description-proof">-->
+<!--          <span>La Prueba de Números evalúa la capacidad del usuario para escuchar y reconocer números-->
+<!--            en diferentes entornos auditivos. Durante la prueba, se reproducirán secuencias de números-->
+<!--            y el usuario deberá ingresar los números que escuche. Esta prueba puede ayudar a detectar-->
+<!--            dificultades en la percepción de números, lo que puede ser especialmente importante en-->
+<!--            situaciones cotidianas como hablar por teléfono o seguir conversaciones.</span>-->
+<!--          </div>-->
+<!--          <div class="instruction-test">-->
+<!--            <div class="instruction">-->
+<!--              <span>Instrucciones:</span>-->
+<!--                <ul>-->
+<!--                  <li>Se reproducirán secuencias de números.</li>-->
+<!--                  <li>Escucha atentamente y escribe los números que escuches.</li>-->
+<!--                  <li>La prueba evaluará la precisión de tus respuestas.</li>-->
+<!--                  <li>La prueba iniciara cuando toque la imagen <img style="width: 40px; " src="assets/images/arrowleft.png" alt=""> </li>-->
+<!--                </ul>-->
 
-            </div>
-            <div class="test">
-              <img  (click)="openModalTestNumeric()" src="assets/images/test.png" alt="Imagen del test">
-            </div>
-          </div>
-        </div>
+<!--            </div>-->
+<!--            <div class="test">-->
+<!--              <img  (click)="openModalTestNumeric()" src="assets/images/test.png" alt="Imagen del test">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="test-left-right">
-          <div class="test-title-sound">
-            <h2>Prueba de Sonido Derecho e Izquierdo</h2>
-          </div>
-          <div class="test-description-proof">
-          <span>La Prueba de Sonido Derecho e Izquierdo evalúa la capacidad del usuario para distinguir
-            entre sonidos que provienen del lado derecho y del lado izquierdo. Esto es esencial para una
-            percepción auditiva equilibrada y puede ser importante para la seguridad en situaciones de
-            tráfico y otras actividades cotidianas.</span>
-          </div>
-          <div class="instruction-test">
-            <div class="instruction">
-              <span>Instrucciones:</span>
-              <ul>
-                <li>Se reproducirán sonidos desde diferentes direcciones: derecha e izquierda.</li>
-                <li>Indica desde qué dirección escuchas cada sonido.</li>
-                <li>La prueba evaluará tu capacidad para distinguir las direcciones de los sonidos.</li>
-                <li>La prueba iniciara cuando toque la imagen <img style="width: 40px; " src="assets/images/arrowleft.png" alt=""> </li>
-              </ul>
-            </div>
-            <div class="test">
-              <img (click)="openModalTestLeftRight()" src="assets/images/test2.png" alt="Imagen del test">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--        <div class="test-left-right">-->
+<!--          <div class="test-title-sound">-->
+<!--            <h2>Prueba de Sonido Derecho e Izquierdo</h2>-->
+<!--          </div>-->
+<!--          <div class="test-description-proof">-->
+<!--          <span>La Prueba de Sonido Derecho e Izquierdo evalúa la capacidad del usuario para distinguir-->
+<!--            entre sonidos que provienen del lado derecho y del lado izquierdo. Esto es esencial para una-->
+<!--            percepción auditiva equilibrada y puede ser importante para la seguridad en situaciones de-->
+<!--            tráfico y otras actividades cotidianas.</span>-->
+<!--          </div>-->
+<!--          <div class="instruction-test">-->
+<!--            <div class="instruction">-->
+<!--              <span>Instrucciones:</span>-->
+<!--              <ul>-->
+<!--                <li>Se reproducirán sonidos desde diferentes direcciones: derecha e izquierda.</li>-->
+<!--                <li>Indica desde qué dirección escuchas cada sonido.</li>-->
+<!--                <li>La prueba evaluará tu capacidad para distinguir las direcciones de los sonidos.</li>-->
+<!--                <li>La prueba iniciara cuando toque la imagen <img style="width: 40px; " src="assets/images/arrowleft.png" alt=""> </li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--            <div class="test">-->
+<!--              <img (click)="openModalTestLeftRight()" src="assets/images/test2.png" alt="Imagen del test">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
   <div class="doctor">
     <div class="section-title">
       <h2 class="section-heading">Conoce a nuestros Doctores</h2>

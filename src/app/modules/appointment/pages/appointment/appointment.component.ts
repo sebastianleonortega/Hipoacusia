@@ -10,10 +10,9 @@ import {AppointmentService} from "../../service/appointment.service";
 })
 export class AppointmentComponent implements OnInit {
 
-  private idUser: number = 1;
   citas: any;
-  private doctorCita: any;
-   noDate: boolean= false;
+  noDate: boolean = false;
+  id_person: any = 'd0e188e9-d262-4bd9-86d1-b878ad6c6afb'
 
   constructor(
     private _alert: AlertService,
@@ -23,25 +22,16 @@ export class AppointmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllAppointment();
+    this.getAppointmentById();
   }
 
-  cancelAppointment() {
-    this._alert.success('Cita cancelada ')
-  }
-
-  getAllAppointment() {
-    this._appoint.getAllAppointment().subscribe({
+  getAppointmentById() {
+    this._appoint.getAppointmentById(this.id_person).subscribe({
       next: (data) => {
         this.citas = data;
-        if (this.citas === ''){
-          this.noDate = true;
-        }
-        console.log(data)
+
       }
     })
-
-
 
   }
 
@@ -49,20 +39,16 @@ export class AppointmentComponent implements OnInit {
     this.dialog.closeAll();
   }
 
-  deleteAppointment(value: string){
-    const index = this.citas.indexOf(value)
-    if (index !== -1){
-      let id = this.citas[index].id;
-
-      this._appoint.deleteAppointment(id).subscribe({
-        next : () =>{
-          this.citas.splice(index, 1)
-          this._alert.success("Cita cancelada correctamente");
-        }
-      })
-    }
-
-    }
+  deleteAppointment(id: string) {
+    this._appoint.deleteAppointment(id).subscribe({
+      next: () => {
+        this._alert.success("Cita cancelada correctamente");
+        this.getAppointmentById();
+      }, error: () => {
+        this._alert.error("tenemos problemas, intentalo mas tarde")
+      }
+    })
+  }
 
 
 }

@@ -22,13 +22,6 @@
   <div class="reminder-agg" *ngIf="!medicationList">
     <h2>Agregar Recordatorio</h2>
     <form class="form-reminder grid" [formGroup]="reminderForm" (ngSubmit)="onSubmit()">
-      <!--      <label for="nombreMedicamento">Medicamento</label>-->
-      <!--      <select id="nombreMedicamento" formControlName="nameMedicine" required>-->
-      <!--        <option value="" disabled selected>Selecciona un medicamento</option>-->
-      <!--        <option *ngFor="let medicamento of medicines" [value]="medicamento.nombre">-->
-      <!--          {{ medicamento.nombre }}-->
-      <!--        </option>-->
-      <!--      </select>-->
 
       <div class="col-12">
         <div class="form-container">
@@ -55,8 +48,6 @@
         </div>
       </div>
 
-      <!--      <label for="hora">Hora del Recordatorio</label>-->
-      <!--      <input type="time" id="hora" formControlName="time" required>-->
 
       <div class="col-12">
         <div class="button-container">

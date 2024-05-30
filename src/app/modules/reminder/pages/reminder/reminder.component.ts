@@ -56,7 +56,6 @@ export class ReminderComponent implements OnInit {
 
   reminders: any;
 
-
   constructor(
     private _alert : AlertService,
     public dialog: MatDialog,

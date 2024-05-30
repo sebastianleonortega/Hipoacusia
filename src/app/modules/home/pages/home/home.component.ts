@@ -32,12 +32,27 @@ export class HomeComponent implements OnInit {
   slides = [
     {
       image: 'assets/images/idea2.png',
+      text: 'Agenda tu cita de manera fácil y rápida. Con nuestra plataforma, puedes seleccionar el día y la hora ' +
+        'que mejor te convenga, sin necesidad de largas esperas. Encuentra a tu especialista de confianza y programa' +
+        ' una consulta en solo unos pocos clics. Además, recibirás confirmaciones y recordatorios automáticos para' +
+        ' que no olvides tu cita.'
     },
     {
       image: 'assets/images/idea.png',
+      text: 'Agrega recordatorios de medicamentos para llevar un control preciso de tu tratamiento. Nuestra aplicación' +
+        ' te permite configurar alertas personalizadas para cada uno de tus medicamentos, asegurando que nunca te' +
+        ' saltes una dosis. Mantén un registro detallado de tu medicación y recibe notificaciones a tiempo, todo ' +
+        'en un solo lugar'
     },
+    // {
+    //   image: 'assets/images/auth/login1.png',
+    //   text: 'aaaaaaaa'
+    // },
     {
-      image: 'assets/images/auth/login1.png',
+      image: 'assets/images/carrucel/carrucel.png',
+      text: 'Consulta todas tus citas en un solo lugar. Con nuestro sistema, puedes acceder a tu historial' +
+        ' de citas pasadas y futuras, gestionar tus reservas y hacer cambios cuando sea necesario. Mantén tu agenda' +
+        ' organizada y asegúrate de estar siempre al día con tus compromisos médicos.'
     },
   ];
 
@@ -155,7 +170,6 @@ export class HomeComponent implements OnInit {
   getAllDoctor() {
     this._home.getAllDoctor().subscribe({
       next: (data) => {
-        console.log(data)
         this.doctors = data;
       }
     })

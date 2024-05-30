@@ -209,7 +209,6 @@ export class TestNumericNewComponent implements OnInit {
       }
 
       this.response.push(data.inputNumbers);
-      console.log(this.response)
 
       //limpiar el input
       const inputValue = '';
@@ -222,7 +221,6 @@ export class TestNumericNewComponent implements OnInit {
         this._test.getResult().subscribe({
           next: (data) => {
             this.graphResult = parseFloat(data.toString());
-            console.log("data convertida mi perro" + this.graphResult + "y a no convertida" + data)
             localStorage.setItem('graphResult', this.graphResult.toString());
 
           }

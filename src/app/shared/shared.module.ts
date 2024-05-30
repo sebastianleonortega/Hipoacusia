@@ -14,6 +14,7 @@ import {MessageErrorsDirective} from "./directives/field-errors/directive/messag
 import {InputMaskDirective} from "./directives/input-mask/input-mask.directive";
 import {TemplateErrorComponent} from "./directives/field-errors/template-error/template-error.component";
 import { LoadingComponent } from './layouts/loading/loading.component';
+import { AboutUsComponent } from './layouts/about-us/about-us.component';
 
 
 
@@ -26,7 +27,8 @@ import { LoadingComponent } from './layouts/loading/loading.component';
     InputMaskDirective,
     MessageErrorsDirective,
     TemplateErrorComponent,
-    LoadingComponent
+    LoadingComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

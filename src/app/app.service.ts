@@ -14,7 +14,5 @@ export class AppService {
 
   setGraphResult(graphResultValue: number) {
     this.graphResult.next(graphResultValue)
-    console.log(this.graphResult)
-    console.log(this.getGraphResult)
   }
 }

@@ -66,6 +66,7 @@
 
         .info-appointment {
           display: flex;
+          justify-content: center;
           flex-direction: column;
 
           span {
@@ -93,13 +94,23 @@
           }
         }
 
-        .appointment-map {
-          display: flex;
-          justify-content: center;
+        .appointment-img-doctor {
+          position: relative;
+          height: 170px;
 
-          .map {
-            width: 150px;
-            height: 150px;
+
+          span{
+            text-align: center;
+            width: 110px;
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+            background-color: white;
+            padding: 6px;
+          }
+
+          img{
+            width: 110px;
           }
         }
       }

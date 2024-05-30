@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ReminderComponent} from "../../../modules/reminder/pages/reminder/reminder.component";
 import {Router} from "@angular/router";
 import {AppointmentComponent} from "../../../modules/appointment/pages/appointment/appointment.component";
+import {AboutUsComponent} from "../about-us/about-us.component";
 
 @Component({
   selector: 'app-header',
@@ -53,9 +54,15 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  openModalAboutUS(){
+    this._dialog.open(AboutUsComponent, {
+      width: '800px',
+      height: '600px'
+    })
+  }
+
   OnProfile(){
     this._router.navigateByUrl('/profile');
-    console.log("sapo")
   }
 
 
